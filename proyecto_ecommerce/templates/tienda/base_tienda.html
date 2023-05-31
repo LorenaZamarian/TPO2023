@@ -51,9 +51,14 @@
                         <li class="nav-item"><a class="nav-link" href="#!">DELI BOX</a></li>
                         <li class="nav-item"><a class="nav-link" href="#!">GIFT CARD</a></li>
                     </ul>
+                    
+                    <form class="d-flex" action="{% url 'inicio'%}">
+                        <input class="form-control mr-sm-2" name="q" type="search" placeholder="Buscar" aria-label="Search">
+                        <button class="btn btn-dark" type="submit">?</button>
+                    </form>
                     <form class="d-flex">
                         <button class="btn btn-outline-dark" type="submit">
-                            INICIAR SESION
+                            INICIAR
                         </button>
                     </form>
                     <form class="d-flex">
