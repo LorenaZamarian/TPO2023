@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import environ
 import os
+
 env=environ.Env()
 environ.Env.read_env()
 
@@ -80,23 +81,23 @@ WSGI_APPLICATION = 'proyecto_ecommerce.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 #Esta tenia por defecto
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-#Esta le configuro yo
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': env("DATABASE_NAME"),
-        'USER': env("DATABASE_USER"),
-        'PASSWORD': env("DATABASE_PASSWORD"),
-        'HOST': env("DATABASE_HOST"),
-        'PORT': env("DATABASE_PORT"),
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+#Esta le configuro yo
+# DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#        'NAME': env("DATABASE_NAME"),
+#        'USER': env("DATABASE_USER"),
+#        'PASSWORD': env("DATABASE_PASSWORD"),
+#        'HOST': env("DATABASE_HOST"),
+#        'PORT': env("DATABASE_PORT"),
+#    }
+#}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -136,6 +137,17 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# Busca en un directorio static dentro del proyecto
+STATICFILES_DIRS= [
+    BASE_DIR / 'static'
+]
+
+# Debug = False , antes de subir a produccion ejecuto el comando
+#python manage.py collectstatic
+#me crea la static root con todos los css y js
+STATIC_ROOT = BASE_DIR / 'static_root'
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
@@ -143,16 +155,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #donde vamos a ir guardar los archivos medias debug
 MEDIA_URL = "/media/"
+
 #media para produccion
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
-#Busca en un directorio static dentro del proyecto
-STATICFILES_DIRS= [
-    BASE_DIR / 'static'
-]
-#antes de subir a produccion ejecuto el comando
-#python manage.py collectstatic
-#me crea la static root con todos los css y js
-STATIC_ROOT= BASE_DIR / 'static_root'
 #y django va a interperetar que tiene que ir abuscar ahí porque ponemos el 
 #DEBUG=False
