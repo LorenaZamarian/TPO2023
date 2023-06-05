@@ -1,0 +1,16 @@
+<h1>Ingresa</h1>
+
+
+<form action="/signup/" method="POST">
+
+    {{error}}
+
+    {% csrf_token %}
+
+    {{form.as_p}}
+
+    <button>
+        Registrate
+    </button>
+
+</form>
