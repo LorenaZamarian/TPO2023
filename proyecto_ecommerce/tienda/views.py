@@ -1,17 +1,31 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse, JsonResponse
 from django.template import loader
-
+# from administracion.models import Producto, Varietal
 
 def hola_tienda(request):
     return HttpResponse('Bienvenido a la Tienda')
 
-#def index(request):
+def index(request):
+   template = loader.get_template('tienda/index.html')
+   context={'titulo':'Inicio'}
+   return HttpResponse(template.render(context,request))
+
+# def indexp(request):
+#     template_name="index.html"
+#     varietales=Varietal.objects.filter(activo=True)
+#     productos=Producto.objects.filter(activo=True)
+#     context ={"productos":productos, "varietales":varietales}
+#     return render(request,template_name,context)
+
+# def index(request):
 #    template = loader.get_template('tienda/index.html')
-#    context={'titulo':'Inicio'}
+#    varietales=Varietal.objects.filter(activo=True)
+#    productos=Producto.objects.filter(activo=True)
+#    context={'titulo':'Inicio','producto':productos,'varietal':varietales}
 #    return HttpResponse(template.render(context,request))
 
-#def producto(request):
+# def producto(request):
 #    template = loader.get_template('tienda/productos.html')
 #    context={'titulo':'Producto'}
 #    return HttpResponse(template.render(context,request))
@@ -48,7 +62,7 @@ def index(request):
                    'cursos':listado_cursos
                   })
 
-# Create your views here.
+#Create your views here.
 
 def api_productos(request):
    productos = [{
