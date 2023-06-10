@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import environ
+import os
 
 env=environ.Env()
 environ.Env.read_env()
@@ -145,3 +146,8 @@ STATICFILES_DIRS= [
 STATIC_ROOT= BASE_DIR / 'static_root'
 #y django va a interperetar que tiene que ir abuscar ahí porque ponemos el 
 #DEBUG=False
+
+#donde vamos a ir guardar los archivos medias debug
+MEDIA_URL = "/media/"
+#media para produccion
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
