@@ -3,9 +3,7 @@ from django.utils.text import slugify
 
 
 # Create your models here.
-<<<<<<< HEAD
 
-=======
 class Bodega(models.Model):
     nombre = models.CharField(max_length=50,verbose_name='Nombre')
     # campo del tipo slug
@@ -64,4 +62,3 @@ class Producto(models.Model):
         super().save(*args, **kwargs)
 
         
->>>>>>> Vale
