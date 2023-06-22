@@ -151,3 +151,12 @@ STATIC_ROOT= BASE_DIR / 'static_root'
 MEDIA_URL = "/media/"
 #media para produccion
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+
+#Modelo User
+"""
+AUTH_USER_MODEL = 'administracion.Usuario'
+
+LOGIN_URL ='/accounts/login/'
+
+LOGIN_REDIRECT_URL = "inicio"
+"""

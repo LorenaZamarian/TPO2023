@@ -1,11 +1,13 @@
 from django.contrib import admin
 
 # Register your models here.
-from administracion.models import Producto,Varietal,Bodega
+from administracion.models import Producto, Detalle_venta, Venta, Varietal,Bodega
 
 
 # Registro por defecto al admin de Django
 admin.site.register(Producto)
+admin.site.register(Detalle_venta)
+admin.site.register(Venta)
 admin.site.register(Varietal)
 admin.site.register(Bodega)
 
