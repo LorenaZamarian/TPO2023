@@ -1,0 +1,28 @@
+{% extends './base_tienda.html' %}
+
+{% block titulo %}Inicio Tienda{% endblock %}
+
+{% block contenido %}
+<section class="bg-dark py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-white">
+            <img src="/static/tienda/imagenes/images.png" width="" alt="Imagen">
+        </div>
+    </div>
+</section>
+<section class="py-5">
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center" id="divProductos">
+{% comment %}     
+            {% for p in productos %}
+            <a href="{% url 'administracion:productos' p.nombre%}"></a>
+            {% endfor %} {% endcomment %}
+        </div>
+    </div>
+</section>
+    
+{% endblock contenido %}
+{% block javascript %}
+{% load static %}
+<script src="{% static '/tienda/js/productos.js'%}?v={% now 'U' %}"></script>
+{% endblock %}
